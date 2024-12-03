@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Short Link with Company Name in Seconds</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+        .short-url-box {
+            background-color: #e7f9e7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid #4CAF50;
+            display: inline-block;
+            font-size: 18px;
+        }
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Short Link with Company Name in Seconds</h1>
+    <form method="POST">
+        <label for="long_url">Enter a Long URL:</label>
+        <input type="text" id="long_url" name="long_url" placeholder="e.g. https://example.com" required><br>
+
+        <label for="company_name">Enter Company Name:</label>
+        <input type="text" id="company_name" name="company_name" required><br>
+
+        <label for="alias">Enter Alias (Optional):</label>
+        <input type="text" id="alias" name="alias" placeholder="Optional"><br>
+
+        <button type="submit">Generate Short URL</button>
+    </form>
+
+    {% if error %}
+    <div class="error">
+        <p>{{ error }}</p>
+    </div>
+    {% endif %}
+
+    {% if short_url %}
+    <div class="result">
+        <h2>Your Short URL:</h2>
+        <div class="short-url-box">
+            <a href="{{ short_url }}" target="_blank">{{ short_url }}</a>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>
